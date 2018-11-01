@@ -7,11 +7,11 @@ const layoutStyle = {
 };
 
 const Layout = props => (
-    <div style={layoutStyle}>
-        <Header />
-        {props.children}
-        <Footer />
-    </div>
+  <div style={layoutStyle}>
+    <Header />
+    {props.children}
+    <Footer />
+  </div>
 );
 
 export default Layout;
