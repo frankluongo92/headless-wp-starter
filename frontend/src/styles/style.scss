@@ -1,10 +1,16 @@
-@import 'theme-colors';
-$theme-font: Helvetica, sans-serif;
+@import '_foundation/all';
 
-body {
-  font: $theme-font;
-  background-color: $themeColor-Light;
-  h1, h2 {
-      color: $themeColor-Dark
-  }
-}
+@import 'elements/reset';
+@import 'elements/typography';
+
+
+//@import 'theme-colors';
+// $theme-font: Helvetica, sans-serif;
+
+// body {
+//   font: $theme-font;
+//   background-color: $themeColor-Light;
+//   h1, h2 {
+//       color: $themeColor-Dark
+//   }
+// }

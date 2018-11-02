@@ -1,0 +1,11 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+html {
+  font-family: #{map-get($typography, default)};
+  font-weight: 400;
+  line-height: 1.6;
+}
