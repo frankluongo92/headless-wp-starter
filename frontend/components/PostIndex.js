@@ -1,36 +1,44 @@
 import React, { Component } from 'react';
+import Link from 'next/link';
 import Layout from "../components/Layout.js";
+import fetch from 'isomorphic-unfetch';
 import { Config } from '../config';
 
 export default class PostIndex extends Component {
 
+  state = {
+    posts: []
+  };
+
   // This is a Next.js Thing
-  static async getInitialProps() {
+  async componentWillMount() {
     const postsRes = await fetch(
       `${Config.apiUrl}/wp-json/wp/v2/posts`
     );
     const posts = await postsRes.json();
-    return {
+    this.setState({
       posts
-    }
+    });
   }
 
   render() {
-    const { posts } = this.props;
-    console.log(posts);
+    const { posts } = this.state;
     return (
-      <Layout>
-        <h1>Post Index</h1>
+      <section>
+        <h1>Archive</h1>
         <ul>
           {posts.map((post, index) => (
             <li key={index}>
-              <a href={`/post/${post.slug}`}>
-                {post.title.rendered}
-              </a>
+             <Link
+              href={`/post?slug=${post.slug}&apiRoute=post`}
+              as={`/post/${post.slug}`}
+            >
+                <a>{post.title.rendered}</a>
+              </Link>
             </li>
           ))}
         </ul>
-      </Layout>
+      </section>
     );
   }
 }

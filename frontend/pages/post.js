@@ -28,6 +28,7 @@ class Post extends Component {
                         __html: this.props.post.content.rendered
                     }}
                 />
+
             </Layout>
         );
     }
