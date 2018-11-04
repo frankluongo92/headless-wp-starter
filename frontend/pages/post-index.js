@@ -24,7 +24,7 @@ export default class PostIndex extends Component {
         <ul>
           {posts.map((post, index) => (
             <li key={index}>
-              <a href={post.slug}>
+              <a href={`/post/${post.slug}`}>
                 {post.title.rendered}
               </a>
             </li>

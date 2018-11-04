@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Config } from '../config';
 import fetch from 'isomorphic-unfetch';
+import PageWrapper from "../components/PageWrapper.js";
+import Layout from "../components/Layout.js";
 
-export default class blogPost extends Component {
+class blogPost extends Component {
   static async getInitialProps(context) {
     console.log(context.query.slug);
     const postsRes = await fetch(
@@ -16,12 +18,16 @@ export default class blogPost extends Component {
 
   render() {
     const { posts } = this.props;
-    console.log(posts);
+    let content = posts.content.rendered;
     return (
-      <div>
+      <Layout>
         <h1>{posts.title.rendered}</h1>
-        {posts.content.rendered}
-      </div>
+        <div dangerouslySetInnerHTML={{
+          __html: content
+        }} />
+      </Layout>
     )
   }
 }
+
+export default PageWrapper(blogPost);
