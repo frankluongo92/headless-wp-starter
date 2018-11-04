@@ -55,8 +55,6 @@ class Index extends Component {
                         __html: this.props.page.content.rendered
                     }}
                 />
-                <PostIndex />
-
             </Layout>
         );
     }

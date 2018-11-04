@@ -6,14 +6,20 @@ import { Config } from '../config';
 
 export default class PostIndex extends Component {
 
+  static defaultProps = {
+    limit: 5
+  }
+
   state = {
     posts: []
   };
 
   // This is a Next.js Thing
   async componentWillMount() {
+    const { limit } = this.props;
+
     const postsRes = await fetch(
-      `${Config.apiUrl}/wp-json/wp/v2/posts`
+      `${Config.apiUrl}/wp-json/wp/v2/posts?per_page=${limit}`
     );
     const posts = await postsRes.json();
     this.setState({
