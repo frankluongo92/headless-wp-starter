@@ -14,7 +14,6 @@ export default class PostIndex extends Component {
     posts: []
   };
 
-  // This is a Next.js Thing
   async componentWillMount() {
     const { limit } = this.props;
 
