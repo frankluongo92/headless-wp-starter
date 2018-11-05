@@ -19,6 +19,15 @@ class Header extends Component {
           <meta charSet="utf-8" />
           <title>Hm?</title>
         </Head>
+        <header>
+          <Link href="/">
+            <a><h1>WordPress Blog</h1></a>
+          </Link>
+        </header>
+        <nav>
+
+        </nav>
+
       </div>
     );
   }
