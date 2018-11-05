@@ -20,7 +20,7 @@ class blogPost extends Component {
     const { posts } = this.props;
     let content = posts.content.rendered;
     return (
-      <Layout>
+      <Layout {...this.props}>
         <h1>{posts.title.rendered}</h1>
         <div dangerouslySetInnerHTML={{
           __html: content

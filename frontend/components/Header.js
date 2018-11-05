@@ -4,7 +4,6 @@ import Head from "next/head";
 import Menu from "./Menu.js";
 import { Config } from "../config.js";
 import stylesheet from '../src/styles/style.scss';
-import MainNav from './MainNav';
 
 class Header extends Component {
   constructor() {
@@ -12,6 +11,7 @@ class Header extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <Head>
@@ -25,7 +25,8 @@ class Header extends Component {
             <a><h1>WordPress Blog</h1></a>
           </Link>
         </header>
-        <MainNav />
+        <Menu menu={this.props.mainNav} />
+
       </div>
     );
   }
