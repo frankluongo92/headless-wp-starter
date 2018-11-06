@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Carousel from 'nuka-carousel';
 import fetch from 'isomorphic-unfetch';
+import Link from 'next/link';
 import { Config } from '../config';
 
 export default class Slider extends Component {
@@ -25,13 +26,19 @@ export default class Slider extends Component {
     return (
       <Carousel>
           {slides.map(slide => (
-            <img
-              style={{ width: '100%'}}
-              key={slide.id}
-              src={
-                slide._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url}
-              alt={slide.title.rendered}
-            />
+            <Link
+              href={slide.acf.link}
+            >
+            <a>
+              <img
+                style={{ width: '100%'}}
+                key={slide.id}
+                src={
+                  slide._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url}
+                alt={slide.title.rendered}
+              />
+            </a>
+            </Link>
           ))}
       </Carousel>
     )
