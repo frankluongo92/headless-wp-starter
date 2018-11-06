@@ -23,6 +23,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             }
           }
         }
+        allWordpressPost {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
       }
       `
     ).then(result => {
@@ -38,7 +45,16 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             slug: node.slug
           }
         })
-      });
+      })
+      result.data.allWordpressPost.edges.forEach(({node}) => {
+        createPage({
+          path: `posts/${node.slug}`,
+          component: path.resolve('./src/pages/post.js'),
+          context: {
+            slug: node.slug
+          }
+        })
+      })
 
       resolve()
     });
