@@ -1,0 +1,33 @@
+{
+  allWordpressPage {
+    edges {
+      node {
+        id
+        slug
+        title
+      }
+    }
+  }
+	wordpressWpApiMenusMenus(slug: {eq: "main-nav"}) {
+		id
+  }
+  wordpressWpApiMenusMenusItems(slug: {eq: "main-nav"}) {
+    items {
+      title
+      url
+    }
+  }
+  allWordpressWpSlide {
+    edges {
+      node {
+        featured_media {
+          source_url
+        }
+        acf {
+          link
+        }
+
+      }
+    }
+  }
+}
