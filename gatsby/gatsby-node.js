@@ -33,7 +33,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       result.data.allWordpressPage.edges.forEach(({node}) => {
         createPage({
           path: node.slug,
-          component: path.resolve('./src/pages/page-2.js')
+          component: path.resolve('./src/pages/page.js'),
+          context: {
+            slug: node.slug
+          }
         })
       });
 
